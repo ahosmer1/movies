@@ -1,9 +1,21 @@
 class MoviesController < ApplicationController
   def index
-  	initialize_movies
+  	if params[:q].present?
+  		@movies = Movie.search_for(params[:q])
+  	else
+  		@movies = Movie.all
+  	end
   end
-  private
-  def initialize_movies
-		@movies = ["title", "description", "year_released"]
-	end
+  def search
+  	@movies = Movie.find(params[:q])
+  end
+  def show
+    @movies = Movie.find(params[:id])
+  end
+  def edit
+    @movies = Movie.find(params[:id])
+  end
+  def new
+    @movies = Movies.new
+  end
 end

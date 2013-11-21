@@ -1,0 +1,5 @@
+<h1><%= @movies.title %></h1>
+<a href="<% edit_movie_path( @movies) %>">Edit movie</a>
+
+<p><%= @movies.description %></p>
+<img src="<%= image_path( @movies.image ) %>">

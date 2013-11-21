@@ -1,7 +1,24 @@
-<h1>Welcome to RetFlix</h1>
-<p>See our movie collection below</p>
-<% @movies.each do |listing| %>
-<h1><%= listing.title %></h1>
-<p><%= listing.description %></p>
-<p><%= listing.year_released %></p>
-<% end %>
+<div class="hero-unit">
+	<h1>Welcome to RetFlix</h1>
+	<p>Search for any movie ever made.  But we might not have it.</p>
+	<%= form_tag "/",  :method => :get, :class => "form-search" do %>
+	<div class="input-append">
+	
+	<%= text_field_tag :q, params[:q], {:class => "span2 search-query"}%>
+		<%= submit_tag "Find a Movie", :class => "btn" %>
+		<% end %>
+		
+	</div>
+</div>
+<div>
+	<ul class="results-list">
+		<% @movies.each do |movie| %>
+		<li class = "result">
+			<h3><a href="<%= movie_path(movie) %>"><%= movie.title %></h3>
+			<p><%= movie.description %></p>
+			<p class="year-released"><%= movie.year_released %></p>
+			<p><img src="<%= image_path(movie.image) %>" height="400" width="400"></p>
+		</li>
+		<% end %>
+	</ul>
+</div>
