@@ -1,5 +1,7 @@
 <h1><%= @movies.title %></h1>
-<a href="<% edit_movie_path( @movies) %>">Edit movie</a>
+<a href="<%= edit_movie_path( @movies) %>">Edit movie</a>
+<%= button_to "Delete Movie", movie_path(@movies), :method => :delete %>
+
 
 <p><%= @movies.description %></p>
 <img src="<%= image_path( @movies.image ) %>">

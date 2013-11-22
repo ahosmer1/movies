@@ -1,18 +1,18 @@
-<%= form_for @movies, :html => { :class => "class-for-your-form" } do |f| %>
+<%= form_for @movies do |f| %>
 <div>
-	<%= f.label :title, "Name of movie", :class => "class-for-your-label" %><br>
-	<%= f.text_field :title, :class => "class-for-your-text-field" %>
+	<%= f.label :title, "Name of movie" %><br>
+	<%= f.text_field :title %>
 <div>
-	<%= f.label :description, "Description", :class =>"class-for-your-label" %><br>
-	<%= f.text_field :description, :class => "class-for-your-text-field" %>
+	<%= f.label :description, "Description" %><br>
+	<%= f.text_field :description %>
 </div>
 <div>
-	<%= f.label :year_released, "Year Released", :class =>"class-for-your-label" %></br>
-	<%= f.text_field :year_released, :class => "class-for-your-text-field" %>
+	<%= f.label :year_released, "Year Released" %></br>
+	<%= f.text_field :year_released %>
 </div>
 <div>
-	<%= f.label :image, "Image Filename", :class => "class-for-your-label" %><br>
-	<%= f.text_field :description, :class => "class-for-your-text-field" %>
+	<%= f.label :image, "Image Filename" %><br>
+	<%= f.text_field :image %>
 </div>
 <%= f.submit "Submit" %>
 <% end %>

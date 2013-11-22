@@ -14,13 +14,25 @@ class MoviesController < ApplicationController
   end
   def edit
     @movies = Movie.find(params[:id])
+    
   end
+  def update
+    @movies = Movie.find(params[:id])
+    @movies.update( safe_movie_params )
+    redirect_to root_path
+  end
+
   def new
     @movies = Movie.new
   end
   def create
     @movies = Movie.new( safe_movie_params )
     @movies.save
+    redirect_to root_path
+  end
+  def destroy
+    @movies = Movie.find(params[:id])
+    @movies.destroy
     redirect_to root_path
   end
   private
